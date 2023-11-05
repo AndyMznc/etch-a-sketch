@@ -2,7 +2,8 @@ const app = document.querySelector("#main");
 
 const createSquare = () => {
   const square = document.createElement("div");
-  square.style.cssText = "width: 10px; height: 10px; border: solid black 1px";
+  square.style.cssText = "border: solid black 1px";
+  square.className = "square";
   return square;
 };
 
@@ -14,3 +15,15 @@ const WebPage = () => {
   }
 };
 WebPage();
+
+const squares = document.querySelectorAll(".square");
+
+const drawOnHover = () => {
+  Array.from(squares).forEach((square) => {
+    square.addEventListener("mouseover", function (event) {
+      console.log(event);
+      event.target.style.backgroundColor = "orange";
+    });
+  });
+};
+drawOnHover();
