@@ -19,11 +19,19 @@ function WebPage() {
 }
 WebPage();
 
+function randomColor() {
+  var red = Math.floor(Math.random() * 256);
+  var green = Math.floor(Math.random() * 256);
+  var blue = Math.floor(Math.random() * 256);
+
+  return `${red},${green},${blue}`;
+}
+
 function drawOnHover() {
   const squares = document.querySelectorAll(".square");
   Array.from(squares).forEach(function (square) {
     square.addEventListener("mouseover", function (event) {
-      event.target.style.backgroundColor = "orange";
+      event.target.style.background = `rgb(${randomColor()})`;
     });
   });
 }
